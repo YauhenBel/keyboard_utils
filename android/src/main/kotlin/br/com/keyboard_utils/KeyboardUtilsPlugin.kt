@@ -53,18 +53,6 @@ class KeyboardUtilsPlugin : FlutterPlugin, ActivityAware, EventChannel.StreamHan
         keyboardUtil = null
     }
 
-    companion object {
-        @JvmStatic
-        fun registerWith(registrar: PluginRegistry.Registrar) {
-            if (registrar.activity() == null) {
-                return
-            }
-
-            val keyboardUtilsPlugin = KeyboardUtilsPlugin()
-            keyboardUtilsPlugin.setup(registrar.activity(), registrar.messenger())
-        }
-    }
-
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
         this.flutterPluginBinding = binding
         setup(null, binding.binaryMessenger)
